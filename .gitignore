@@ -1,0 +1,9 @@
+/target
+ui/target
+**/*.rs.bk
+Cargo.lock
+ui/Cargo.lock
+.DS_Store
+*.swp
+/pages
+

@@ -1,0 +1,27 @@
+[package]
+name = "workplace-sim"
+version = "0.3.0"
+edition = "2021"
+description = "Toxic Company — flip cards for workplace patterns"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "harbor-desk"
+path = "engine/src/main.rs"
+required-features = ["server"]
+
+[lib]
+name = "workplace_sim"
+path = "engine/src/lib.rs"
+
+[features]
+default = ["server"]
+server = ["dep:axum", "dep:tokio"]
+
+[dependencies]
+axum = { version = "0.8", optional = true }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal"], optional = true }
+
+[build-dependencies]
+wasm-bindgen-cli-support = "=0.2.127"
